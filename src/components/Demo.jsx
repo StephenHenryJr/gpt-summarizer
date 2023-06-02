@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
 
 import { copy, linkIcon, loader, tick } from "../assets";
+import { useLazyGetSummaryQuery } from "../services/article"
 
 const Demo = () => {
   const [article, setArticle] = useState({
     url: '',
     summary: '',
-  })
+  })  
+
+  const [getSummary, {error, isFetching}] = useLazyGetSummaryQuery();
 
   const handleSubmit = async (e) => {
-    alert('Submitted')
-    console.log(article)
+    e.preventDefault()
+    const { data } = await getSummary({articleUrl: article.url});
+
+    if(data?.summary) {
+      const newArticle = {...article, summary: data.summary}
+      setArticle(newArticle)
+      console.log(newArticle)
+    }
+
   }
 
   return (
@@ -38,9 +48,7 @@ const Demo = () => {
           <button
             type="submit"
             className="submit_btn peer-focus:border-gray-700 peer-focus:text-gray-700 "
-            onClick= {() => {
-              console.log(article)
-            }}
+
           >
             <p>↵</p>
           </button>
