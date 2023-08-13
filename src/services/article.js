@@ -1,7 +1,7 @@
 // These functions are part of the Redux Toolkit Query package, which is used for making API requests and managing the data returned from those requests.
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const rapidApiKey = import.meta.env.VITE_RAPID_API_KEY;
+// const rapidApiKey = import.meta.env.VITE_RAPID_API_KEY;
 
 export const articleApi = createApi({
     reducerPath: 'articleApi',

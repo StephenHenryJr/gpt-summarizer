@@ -6,7 +6,7 @@ const Hero = () => {
       <nav className="flex justify-between items-center w-full mb-10 pt-3">
         <div className="flex items-center">
           <img src={logo} alt="CondensePro logo" className="w-28 object-contain" />
-          <p className="text-2xl font-semibold tracking-wide">CondensePro</p>
+          <p className="text-3xl font-extrabold leading-[1.15] text-black">CondensePro</p>
         </div>
 
         <button
